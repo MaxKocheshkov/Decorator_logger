@@ -1,11 +1,10 @@
 import datetime
 
 
-start_time = datetime.datetime.utcnow()
-
-
 # Task 1
 def logger(func):
+    start_time = datetime.datetime.utcnow()
+
     def wrapper(*args):
         result = func(*args)
         with open('my_logger_1.txt', 'w', encoding='utf8') as log_file:
@@ -17,5 +16,5 @@ def logger(func):
             work_time = end_time - start_time
             log_file.write(f'Время работы: {work_time}')
         return result
-    return wrapper
 
+    return wrapper
